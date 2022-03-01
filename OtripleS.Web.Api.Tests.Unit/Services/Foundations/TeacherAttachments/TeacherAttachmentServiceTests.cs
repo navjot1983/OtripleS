@@ -38,7 +38,7 @@ namespace OtripleS.Web.Api.Tests.Unit.Services.Foundations.TeacherAttachments
         }
 
         private static IQueryable<TeacherAttachment> CreateRandomTeacherAttachments() =>
-            CreateTeacherAttachmentFiller(DateTimeOffset.UtcNow)
+            CreateTeacherAttachmentFiller(dates: GetRandomDateTime())
             .Create(GetRandomNumber()).AsQueryable();
 
         private static string GetRandomMessage() => new MnemonicString().GetValue();
@@ -47,7 +47,7 @@ namespace OtripleS.Web.Api.Tests.Unit.Services.Foundations.TeacherAttachments
             new DateTimeRange(earliestDate: new DateTime()).GetValue();
 
         private static TeacherAttachment CreateRandomTeacherAttachment() =>
-            CreateTeacherAttachmentFiller(DateTimeOffset.UtcNow).Create();
+            CreateTeacherAttachmentFiller(Date: GetRandomDateTime()).Create();
 
         private static TeacherAttachment CreateRandomTeacherAttachment(DateTimeOffset dates) =>
             CreateTeacherAttachmentFiller(dates).Create();
